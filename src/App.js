@@ -5,7 +5,6 @@ import Intro from './components/Intro.tsx';
 import ProjectDisplay from './components/ProjectDisplay.tsx';
 import BlamLogo from './assets/CombinedLogo.png';
 import PerceptronImg from './assets/perceptroninput.png';
-import PokerBotImg from './assets/pokerbot.png';
 import StoneGridImg from './assets/stonegrid.jpg';
 import PlatformerImg from './assets/videogame.png';
 import WordleImg from './assets/wordleimg.png';
@@ -13,7 +12,8 @@ import { FaArrowDown } from 'react-icons/fa';
 
 // Projects
 const projects = [
-  { title: 'Daily Disc', description: '3D mobile game where the user throws a disc and tries to score in 4 nets in as few throws as possible. New island/level every day through random perlin noise generation. Releasing a beta testing version by the end of the year and releasing the game within the following few months. Contains 100% original assets and coding with Godot.', imageUrl: '/DDIcon.png' }
+  { title: 'Daily Disc', description: '3D mobile game where the user throws a disc and tries to score in 4 nets in as few throws as possible. New island/level every day through random perlin noise generation. Releasing a beta testing version by the end of the year and releasing the game within the following few months. Contains 100% original assets and coding with Godot.', imageUrl: '/DDIcon.png', git: 'https://github.com/tommycbird/DailyDisc' },
+  { title: 'Texas Hold\'em Bot', description: 'Program that generates thousands of data files from simulated Texas Hold\'em games and saves the data into 4 csv files. Each csv file is then transferred to a Pandas dataframe and fitted to their 4 respective perceptron machines that each predict a specific stage of Texas Hold\'em (preflop, flop, turn, river).', imageUrl: '/pokerbot.png', git: 'https://github.com/danieldaug/Texas-Holdem-Bot'},
 ];
 
 // Functional Component for Footer

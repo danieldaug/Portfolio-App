@@ -16,11 +16,62 @@
   /* Title container */
   .stack-title {
     flex: 1;
-    text-align: left;
+  }
+
+  .git-button {
+    background-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
+    -webkit-background-clip: text; /* Clip background to text */
+    background-clip: text; /* For non-webkit browsers */
+    background-size: 200% 100%;
+    color: linear-gradient(to top, var(--accent-color), var(--primary-color));;
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 10px 10px 10px;
+    margin: 10px;
+    transition-duration: 0.3s;
+    text-align: right;
+    position: relative;
+    border: 5px solid transparent; /* Set border to transparent initially */
+    border-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
+    border-image-slice: 1;
+    padding-bottom: 5px;
+    padding-top: 11px;
+    padding-right: 8px;
+    padding-left: 8px;
+    cursor: pointer;
+  }
+  
+  .git-button:hover {
+    background-image: linear-gradient(to top, var(--primary-color), var(--accent-color)); /* Gradient colors */
+    -webkit-background-clip: text; /* Clip background to text */
+    background-clip: text; /* For non-webkit browsers */
+    background-size: 200% 100%;
+    color: linear-gradient(to top, var(--primary-color), var(--accent-color));;
+    border-image: linear-gradient(to top, var(--primary-color), var(--accent-color)); /* Gradient colors */
+    border-image-slice: 1;
+  }
+  
+  .git-button svg {
+    fill: url(#gradient); /* Reference the gradient defined in the SVG */
+    transition: fill ease 0.3s;
+  }
+  
+  .git-button:hover svg {
+    fill: url(#hover-gradient); /* Optional hover gradient */
+  }
+  
+  .git-button:hover svg stop:first-child {
+  stop-color: var(--primary-color); /* Swap the gradient colors */
+  }
+  
+  .git-button:hover svg stop:last-child {
+  stop-color: var(--accent-color);
   }
 
   .stack-title h2 {
     font-size: 40px;
+    text-align: center;
+    margin-bottom: 0;
   }
   
   /* Description container */
@@ -28,6 +79,7 @@
     flex: 2;
     text-align: left;
     margin: 50px;
+    font-size: 20px;
   }
   
   /* Image container */
