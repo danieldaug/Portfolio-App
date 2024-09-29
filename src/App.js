@@ -2,7 +2,19 @@
 import './App.css';
 import Banner from './components/Banner.tsx';
 import Intro from './components/Intro.tsx';
+import ProjectDisplay from './components/ProjectDisplay.tsx';
+import BlamLogo from './assets/CombinedLogo.png';
+import PerceptronImg from './assets/perceptroninput.png';
+import PokerBotImg from './assets/pokerbot.png';
+import StoneGridImg from './assets/stonegrid.jpg';
+import PlatformerImg from './assets/videogame.png';
+import WordleImg from './assets/wordleimg.png';
 import { FaArrowDown } from 'react-icons/fa';
+
+// Projects
+const projects = [
+  { title: 'Daily Disc', description: '3D mobile game where the user throws a disc and tries to score in 4 nets in as few throws as possible. New island/level every day through random perlin noise generation. Releasing a beta testing version by the end of the year and releasing the game within the following few months. Contains 100% original assets and coding with Godot.', imageUrl: '/DDIcon.png' }
+];
 
 // Functional Component for Footer
 const Footer = () => (
@@ -34,7 +46,7 @@ function App() {
           <h1>About</h1>
           <div className="about-content">
             <div>
-              <p>I am a student majoring in computer science at the University of
+              <p>I am a student majoring in computer science with a concentration in Artificial Intelligence/Data Science at the University of
               San Diego in the graduating class of 2025. I am originally from Marin
               County in the Bay Area.
               </p>
@@ -70,6 +82,7 @@ function App() {
         </div>
         <div id="project-section">
         <h1>Projects</h1>
+        <ProjectDisplay items={projects} />
         </div>
       </main>
       <Footer />

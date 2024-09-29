@@ -100,6 +100,16 @@ stop-color: var(--accent-color);
 
 #project-section {
   text-align: center;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(to top, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+#project-section h1 {
+  font-size: 50px;
 }
 
 .App {

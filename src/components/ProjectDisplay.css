@@ -1,0 +1,46 @@
+/* ProjectDisplay.css */
+
+.stack-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds space between each project */
+  }
+  
+  /* Styles for each individual project/item */
+  .stack-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Title container */
+  .stack-title {
+    flex: 1;
+    text-align: left;
+  }
+
+  .stack-title h2 {
+    font-size: 40px;
+  }
+  
+  /* Description container */
+  .stack-description {
+    flex: 2;
+    text-align: left;
+    margin: 50px;
+  }
+  
+  /* Image container */
+  .stack-image {
+    flex-shrink: 0;
+    margin: 20px;
+  }
+  
+  /* Image styling */
+  .proj-img {
+    width: 400px; /* Set the specific width */
+    height: 400px; /* Set the specific height */
+    object-fit: cover; /* Ensures the image maintains its aspect ratio and fits the box */
+    border-radius: 10px; /* Adjust as needed */
+  }
+  
