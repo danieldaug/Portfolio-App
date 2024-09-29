@@ -46,12 +46,12 @@ const IconDropdown: React.FC<IconDropdownProps> = ({ menuItems }) => {
   };
 
   const handleClick = (link: string) => {
-    if (link.startsWith('/')) {
-      // If it's an external link, use window.location to navigate
-      window.location.href = link;
+    if (link.startsWith('#')) {
+      // Scroll to the section within the page
+      document.getElementById(link.substring(1))?.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // Otherwise, scroll to the section
-      document.getElementById(link)?.scrollIntoView({ behavior: 'smooth' });
+      // External link or full path navigation
+      window.location.href = link;
     }
     setIsOpen(false); // Close the dropdown after selecting a location
   };

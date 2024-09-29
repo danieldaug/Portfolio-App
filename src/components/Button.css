@@ -16,6 +16,7 @@
     border-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
     border-image-slice: 1;
     cursor: pointer;
+    font-family: "Trebuchet MS", Tahoma, sans-serif;
   }
   .button:hover{
     background-image: linear-gradient(to top, var(--primary-color), var(--accent-color)); /* Gradient colors */
