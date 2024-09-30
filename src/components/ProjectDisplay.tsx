@@ -1,6 +1,6 @@
 import React from 'react';
 import './ProjectDisplay.css'; // CSS for styling
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaLink } from 'react-icons/fa';
 import Divider from './Divider.tsx';
 
 interface Item {
@@ -8,6 +8,7 @@ interface Item {
   description: string;
   imageUrl: string;
   git: string;
+  other?: string;
 }
 
 interface ProjectDisplayProps {
@@ -39,6 +40,11 @@ const ProjectDisplay: React.FC<ProjectDisplayProps> = ({ items }) => {
                     <FaGithub size={30} />
                 </button>
             </a>
+            { item.other && <a href={item.other}>
+                <button className="git-button">
+                    <FaLink size={30} />
+                </button>
+            </a>}
           </div>
           <div className="stack-description">
             <p>{item.description}</p>
