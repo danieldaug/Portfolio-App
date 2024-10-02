@@ -1,5 +1,6 @@
 // Banner.tsx
 import React, { useEffect, useState } from 'react';
+import { FaGithub } from 'react-icons/fa';
 import Button from './Button.tsx';
 import IconDropdown from './IconDropdown.tsx';
 import './Banner.css';
@@ -29,6 +30,11 @@ const Banner: React.FC = () => {
     <div className={`banner ${isScrolled ? 'scrolled' : ''}`}>
       <IconDropdown menuItems={menuItems}></IconDropdown>
       <div id="rightbanner">
+      <a href="https://github.com/danieldaug">
+        <button className="git-button">
+            <FaGithub size={23} />
+        </button>
+        </a>
         <a href="/Daugbjerg_Resume.pdf">
           <Button text="Resume" />
         </a>

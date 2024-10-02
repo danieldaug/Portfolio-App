@@ -7,6 +7,7 @@ interface Item {
   title: string;
   description: string;
   imageUrl: string;
+  overlayText: String;
   git: string;
   other?: string;
 }
@@ -51,6 +52,7 @@ const ProjectDisplay: React.FC<ProjectDisplayProps> = ({ items }) => {
           </div>
           <div className="stack-image">
             <img className="proj-img" src={item.imageUrl} alt={item.title} />
+            <div className="overlay-text">{item.overlayText}</div>
           </div>
         </div>
         <Divider color="#19057e" thickness='5px' />

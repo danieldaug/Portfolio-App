@@ -53,7 +53,7 @@ body {
   -webkit-background-clip: text; /* Clip background to text */
   background-clip: text; /* For non-webkit browsers */
   background-size: 200% 100%;
-  color: linear-gradient(to top, var(--accent-color), var(--primary-color));;
+  color: linear-gradient(to top, var(--accent-color), var(--primary-color));
   font-size: 20px;
   font-weight: bolder;
   padding: 10px 10px 10px;
@@ -150,8 +150,11 @@ section {
 }
 
 footer {
-  background-color: #282c34;
-  color: white;
+  background-color: #ffffff;
+  background: linear-gradient(to top, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   padding: 10px;
   width: 100%;
   bottom: 0;
