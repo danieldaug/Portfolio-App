@@ -35,10 +35,10 @@ const Banner: React.FC = () => {
             <FaGithub size={23} />
         </button>
         </a>
-        <a href="/Daugbjerg_Resume.pdf">
+        <a href={`${process.env.PUBLIC_URL}/Daugbjerg_Resume.pdf`} target="_blank" rel="noopener noreferrer">
           <Button text="Resume" />
         </a>
-        <a href="/Recommendation_for_Daniel.pdf">
+        <a href={`${process.env.PUBLIC_URL}/Recommendation_for_Daniel.pdf`} target="_blank" rel="noopener noreferrer">
           <Button text="Recommendations" />
         </a>
       </div>
