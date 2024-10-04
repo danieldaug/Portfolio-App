@@ -92,6 +92,7 @@ stop-color: var(--accent-color);
 
 .stack-image:hover .proj-img {
   filter: brightness(50%);
+  background: brightness(50%);
 }
 
 /* Image styling */
