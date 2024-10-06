@@ -4,11 +4,12 @@ import './Button.css';
 
 interface ButtonProps {
   text: string;
+  size?: 'small' | 'medium' | 'large';
 }
 
-const Button: React.FC<ButtonProps> = ({ text }) => (
+const Button: React.FC<ButtonProps> = ({ text, size = 'large' }) => (
   <div className="buttonborder">
-    <button className="button">{text}</button>
+    <button className={`button button-${size}`}>{text}</button>
   </div>
 );
 

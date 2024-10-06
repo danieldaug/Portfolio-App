@@ -1,5 +1,50 @@
 /* Button.css */
-.button{
+
+
+  /* Small size */
+  .button.button-small {
+    background-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
+    -webkit-background-clip: text; /* Clip background to text */
+    background-clip: text; /* For non-webkit browsers */
+    background-size: 200% 100%;
+    color: transparent;
+    font-size: 10px;
+    font-weight: bolder;
+    padding: 10px 10px 10px;
+    margin: 10px;
+    transition-duration: 0.3s;
+    text-align: right;
+    position: relative;
+    border: 5px solid transparent; /* Set border to transparent initially */
+    border-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
+    border-image-slice: 1;
+    cursor: pointer;
+    font-family: "Trebuchet MS", Tahoma, sans-serif;
+  }
+  
+  /* Medium size */
+  .button.button-medium {
+    background-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
+    -webkit-background-clip: text; /* Clip background to text */
+    background-clip: text; /* For non-webkit browsers */
+    background-size: 200% 100%;
+    color: transparent;
+    font-size: 15px;
+    font-weight: bolder;
+    padding: 10px 10px 10px;
+    margin: 10px;
+    transition-duration: 0.3s;
+    text-align: right;
+    position: relative;
+    border: 5px solid transparent; /* Set border to transparent initially */
+    border-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
+    border-image-slice: 1;
+    cursor: pointer;
+    font-family: "Trebuchet MS", Tahoma, sans-serif;
+  }
+  
+  /* Large size */
+  .button.button-large {
     background-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
     -webkit-background-clip: text; /* Clip background to text */
     background-clip: text; /* For non-webkit browsers */
@@ -18,6 +63,7 @@
     cursor: pointer;
     font-family: "Trebuchet MS", Tahoma, sans-serif;
   }
+
   .button:hover{
     background-image: linear-gradient(to top, var(--primary-color), var(--accent-color)); /* Gradient colors */
     -webkit-background-clip: text; /* Clip background to text */

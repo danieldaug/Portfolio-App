@@ -1,5 +1,5 @@
 // Banner.tsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import Button from './Button.tsx';
 import IconDropdown from './IconDropdown.tsx';
@@ -26,6 +26,32 @@ const Banner: React.FC = () => {
     };
   }, []);
 
+  const [buttonSize, setIconSize] = useState<'small' | 'medium' | 'large'>('large'); // Default size
+
+  useLayoutEffect(() => {
+    // Function to handle resizing
+    const handleResize = () => {
+      if ((window.innerWidth < 800)){
+        setIconSize('small');
+      } else if (window.innerWidth < 1200) {
+        setIconSize('medium'); // Smaller size for mobile devices
+      } else {
+        setIconSize('large'); // Larger size for larger screens
+      }
+    };
+
+    // Set initial size
+    handleResize();
+
+    // Add resize event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div className={`banner ${isScrolled ? 'scrolled' : ''}`}>
       <IconDropdown menuItems={menuItems}></IconDropdown>
@@ -36,10 +62,10 @@ const Banner: React.FC = () => {
         </button>
         </a>
         <a href={`${process.env.PUBLIC_URL}/Daugbjerg_Resume.pdf`} target="_blank" rel="noopener noreferrer">
-          <Button text="Resume" />
+          <Button text="Resume" size={buttonSize}/>
         </a>
         <a href={`${process.env.PUBLIC_URL}/Recommendation_for_Daniel.pdf`} target="_blank" rel="noopener noreferrer">
-          <Button text="Recommendations" />
+          <Button text="Recommendations" size={buttonSize}/>
         </a>
       </div>
     </div>
