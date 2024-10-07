@@ -103,6 +103,49 @@ stop-color: var(--primary-color); /* Swap the gradient colors */
 stop-color: var(--accent-color);
 }
 
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  #about-section h1 {
+    font-size: 40px;
+  }
+
+  #about-section p {
+    font-size: 18px;
+    margin: 20px;
+  }
+
+  .about-content {
+    flex-direction: column;
+  }
+
+  .about-image img {
+    max-width: 100%; /* Scale image width to fit container */
+  }
+
+  .about-button {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  #about-section h1 {
+    font-size: 32px;
+  }
+
+  #about-section p {
+    font-size: 16px;
+    margin: 10px;
+  }
+
+  .about-image img {
+    max-width: 100%; /* Ensure image scales properly */
+  }
+
+  .about-button {
+    font-size: 16px;
+  }
+}
+
 #project-section {
   text-align: center;
   align-items: center;

@@ -77,3 +77,56 @@
   color: var(--primary-color);
   background: none;
 }
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .intro-text h1 {
+    font-size: 36px;
+  }
+
+  .intro-text p {
+    font-size: 24px;
+  }
+
+  .profile-image img {
+    width: 50%;
+    height: 50%;
+  }
+
+  .intro-button {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay-content {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .intro-text {
+    margin: 10px;
+  }
+
+  .intro-text h1 {
+    font-size: 28px;
+  }
+
+  .intro-text p {
+    font-size: 18px;
+  }
+
+  .profile-image img {
+    width: 40%;
+    height: 40%;
+  }
+
+  .intro-button {
+    font-size: 14px;
+  }
+
+  .intro-container {
+    height: 70vh; /* Adjust background height for smaller screens */
+  }
+}
