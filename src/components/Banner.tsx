@@ -26,17 +26,21 @@ const Banner: React.FC = () => {
     };
   }, []);
 
-  const [buttonSize, setIconSize] = useState<'small' | 'medium' | 'large'>('large'); // Default size
+  const [buttonSize, setButtonSize] = useState<'small' | 'medium' | 'large'>('large');
+  const [iconSize, setIconSize] = useState<15 | 20 | 23>(23);
 
   useLayoutEffect(() => {
     // Function to handle resizing
     const handleResize = () => {
       if ((window.innerWidth < 800)){
-        setIconSize('small');
+        setButtonSize('small');
+        setIconSize(15);
       } else if (window.innerWidth < 1200) {
-        setIconSize('medium'); // Smaller size for mobile devices
+        setButtonSize('medium'); // Smaller size for mobile devices
+        setIconSize(20);
       } else {
-        setIconSize('large'); // Larger size for larger screens
+        setButtonSize('large'); // Larger size for larger screens
+        setIconSize(23);
       }
     };
 
@@ -58,7 +62,7 @@ const Banner: React.FC = () => {
       <div id="rightbanner">
       <a href="https://github.com/danieldaug">
         <button className="git-button">
-            <FaGithub size={23} />
+            <FaGithub size={iconSize} />
         </button>
         </a>
         <a href={`${process.env.PUBLIC_URL}/Daugbjerg_Resume.pdf`} target="_blank" rel="noopener noreferrer">
