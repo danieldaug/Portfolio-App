@@ -3,16 +3,26 @@ import './App.css';
 import Banner from './components/Banner.tsx';
 import Intro from './components/Intro.tsx';
 import ProjectDisplay from './components/ProjectDisplay.tsx';
+import ImageSlideshow from './components/ImageSlideshow.tsx';
 import { FaArrowDown } from 'react-icons/fa';
 import DDIcon from './assets/DDIcon.png';
 import BlamLogo from './assets/CombinedLogo.png';
-import AboutImg from './assets/about.JPG';
+import FamilyImg from './assets/family.JPG';
+import FriendsImg from './assets/friends.jpg';
+import SkiImg from './assets/skiing.png';
 import PerceptronImg from './assets/perceptroninput.png';
 import PokerbotImg from './assets/pokerbot.png';
 import ProfileImg from './assets/profile.png';
 import StoneGridImg from './assets/stonegrid.jpg';
 import VideogameImg from './assets/videogame.png';
 import WordleImg from './assets/wordleimg.png';
+
+// About Images
+const aboutImages = [
+  FamilyImg,
+  FriendsImg,
+  SkiImg,
+];
 
 // Projects
 const projects = [
@@ -85,7 +95,7 @@ function App() {
               </button>
             </div>
             <div className="about-image">
-              <img src={AboutImg} alt="About" />
+              <ImageSlideshow images={ aboutImages } />
             </div>
           </div>
         </div>

@@ -39,18 +39,17 @@ body {
 #about-section p {
   max-width: 600px;
   text-align: left;
-  margin: 40px;
+  margin-right: 40px;
   font-size: 20px;
 }
 
 .about-content {
   display: flex;
+  justify-content: center;
   align-items: center;
-}
-
-.about-image img{
-  max-width: 600px;
-  border-radius: 20px; 
+  text-align: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
 }
 
 .about-button {
