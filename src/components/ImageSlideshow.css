@@ -28,3 +28,8 @@
     object-fit: cover;
   }
   
+  @media (max-width: 768px) {
+    .slideshow-container img {
+      max-width: 100%; /* Scale image width to fit container */
+    }
+  }

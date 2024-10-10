@@ -117,7 +117,7 @@ stop-color: var(--accent-color);
     flex-direction: column;
   }
 
-  .about-image img {
+  .about-image {
     max-width: 100%; /* Scale image width to fit container */
   }
 
