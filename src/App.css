@@ -52,6 +52,15 @@ body {
   margin: 0 auto;
 }
 
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px; /* Match slideshow size */
+  margin: 0 auto; /* Center the slideshow horizontally */
+  padding: 10px; /* Optional, adjust padding if necessary */
+}
+
 .about-button {
   background-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
   -webkit-background-clip: text; /* Clip background to text */
@@ -118,7 +127,7 @@ stop-color: var(--accent-color);
   }
 
   .about-image {
-    max-width: 100%; /* Scale image width to fit container */
+    max-width: 90%; /* Scale image width to fit container */
   }
 
   .about-button {
@@ -137,7 +146,7 @@ stop-color: var(--accent-color);
   }
 
   .about-image img {
-    max-width: 100%; /* Ensure image scales properly */
+    max-width: 90%; /* Ensure image scales properly */
   }
 
   .about-button {
