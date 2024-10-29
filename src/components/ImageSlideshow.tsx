@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './ImageSlideshow.css';
 
-const ImageSlideshow = ({ images, width = '500px', height = '500px' }) => {
+const ImageSlideshow = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
