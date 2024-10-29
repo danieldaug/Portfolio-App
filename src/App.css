@@ -45,11 +45,16 @@ body {
 
 .about-content {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;;
   align-items: center;
   text-align: center;
   flex-wrap: wrap;
   margin: 0 auto;
+}
+
+.about-content > div {
+  flex: 1; /* Allow each section to take up equal space */
+  padding: 20px; /* Optional, adjust for spacing */
 }
 
 .about-image {

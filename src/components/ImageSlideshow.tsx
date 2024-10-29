@@ -14,15 +14,13 @@ const ImageSlideshow = ({ images, width = '500px', height = '500px' }) => {
   }, [images.length]);
 
   return (
-    <div className="slideshow-container" style={{ width, height }}>
+    <div className="slideshow-container">
       {images.map((image, index) => (
         <div
           key={index}
           className={`slide ${index === currentIndex ? 'active' : ''}`}
           style={{
             backgroundImage: `url(${image})`,
-            width,
-            height,
             borderRadius: '20px'
           }}
         ></div>
