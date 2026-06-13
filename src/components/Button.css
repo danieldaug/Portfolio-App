@@ -1,78 +1,31 @@
-/* Button.css */
+.btn {
+  background: none;
+  color: var(--accent);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--ease), border-color var(--ease);
+  white-space: nowrap;
+}
 
+.btn:hover {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+}
 
-  /* Small size */
-  .button.button-small {
-    background-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
-    -webkit-background-clip: text; /* Clip background to text */
-    background-clip: text; /* For non-webkit browsers */
-    background-size: 200% 100%;
-    color: transparent;
-    font-size: 10px;
-    font-weight: bolder;
-    padding: 10px 10px 10px;
-    margin: 10px;
-    transition-duration: 0.3s;
-    text-align: right;
-    position: relative;
-    border: 5px solid transparent; /* Set border to transparent initially */
-    border-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
-    border-image-slice: 1;
-    cursor: pointer;
-    font-family: "Trebuchet MS", Tahoma, sans-serif;
-  }
-  
-  /* Medium size */
-  .button.button-medium {
-    background-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
-    -webkit-background-clip: text; /* Clip background to text */
-    background-clip: text; /* For non-webkit browsers */
-    background-size: 200% 100%;
-    color: transparent;
-    font-size: 15px;
-    font-weight: bolder;
-    padding: 10px 10px 10px;
-    margin: 10px;
-    transition-duration: 0.3s;
-    text-align: right;
-    position: relative;
-    border: 5px solid transparent; /* Set border to transparent initially */
-    border-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
-    border-image-slice: 1;
-    cursor: pointer;
-    font-family: "Trebuchet MS", Tahoma, sans-serif;
-  }
-  
-  /* Large size */
-  .button.button-large {
-    background-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
-    -webkit-background-clip: text; /* Clip background to text */
-    background-clip: text; /* For non-webkit browsers */
-    background-size: 200% 100%;
-    color: transparent;
-    font-size: 20px;
-    font-weight: bolder;
-    padding: 10px 10px 10px;
-    margin: 10px;
-    transition-duration: 0.3s;
-    text-align: right;
-    position: relative;
-    border: 5px solid transparent; /* Set border to transparent initially */
-    border-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
-    border-image-slice: 1;
-    cursor: pointer;
-    font-family: "Trebuchet MS", Tahoma, sans-serif;
-  }
+.btn-small {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.7rem;
+}
 
-  .button:hover{
-    background-image: linear-gradient(to top, var(--primary-color), var(--accent-color)); /* Gradient colors */
-    -webkit-background-clip: text; /* Clip background to text */
-    background-clip: text; /* For non-webkit browsers */
-    background-size: 200% 100%;
-    color: transparent;
-    border-image: linear-gradient(to top, var(--primary-color), var(--accent-color));
-    border-image-slice: 1;
-  }
-  .button:active{
-    transform: scale(0.96);
-  }
+.btn-medium {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.9rem;
+}
+
+.btn-large {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+}

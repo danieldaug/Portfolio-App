@@ -1,78 +1,86 @@
-// Banner.tsx
-import React, { useEffect, useState, useLayoutEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
-import Button from './Button.tsx';
 import IconDropdown from './IconDropdown.tsx';
 import './Banner.css';
 
-const menuItems = [
-  { name: 'Home', link: '#intro'},
-  { name: 'About', link: '#about-section'},
-  { name: 'Projects', link: '#project-section'},
-]
+const navItems = [
+  { name: 'Home', id: 'intro' },
+  { name: 'About', id: 'about-section' },
+  { name: 'Projects', id: 'project-section' },
+];
 
-const Banner: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+interface BannerProps {
+  activeTab: 'programming' | 'manga';
+  onTabChange: (tab: 'programming' | 'manga') => void;
+}
+
+const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0); // True if the user has scrolled down
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const [buttonSize, setButtonSize] = useState<'small' | 'medium' | 'large'>('large');
-  const [iconSize, setIconSize] = useState<15 | 20 | 23>(23);
-
-  useLayoutEffect(() => {
-    // Function to handle resizing
-    const handleResize = () => {
-      if ((window.innerWidth < 800)){
-        setButtonSize('small');
-        setIconSize(15);
-      } else if (window.innerWidth < 1200) {
-        setButtonSize('medium'); // Smaller size for mobile devices
-        setIconSize(20);
-      } else {
-        setButtonSize('large'); // Larger size for larger screens
-        setIconSize(23);
-      }
-    };
-
-    // Set initial size
-    handleResize();
-
-    // Add resize event listener
-    window.addEventListener('resize', handleResize);
-
-    // Cleanup event listener on unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <div className={`banner ${isScrolled ? 'scrolled' : ''}`}>
-      <IconDropdown menuItems={menuItems}></IconDropdown>
-      <div id="rightbanner">
-      <a href="https://github.com/danieldaug">
-        <button className="git-button">
-            <FaGithub size={iconSize} />
+    <nav className={`banner ${scrolled ? 'scrolled' : ''}`}>
+      <div className="banner-inner">
+        <button className="banner-logo" onClick={() => scrollTo('intro')}>
+          DD
         </button>
-        </a>
-        <a href={`${process.env.PUBLIC_URL}/Daugbjerg_Resume.pdf`} target="_blank" rel="noopener noreferrer">
-          <Button text="Resume" size={buttonSize}/>
-        </a>
-        <a href={`${process.env.PUBLIC_URL}/Recommendation_for_Daniel.pdf`} target="_blank" rel="noopener noreferrer">
-          <Button text="Recommendations" size={buttonSize}/>
-        </a>
+
+        <div className="banner-tabs">
+          <button
+            className={`banner-tab ${activeTab === 'programming' ? 'active' : ''}`}
+            onClick={() => onTabChange('programming')}
+          >
+            Programming
+          </button>
+          <button
+            className={`banner-tab ${activeTab === 'manga' ? 'active' : ''}`}
+            onClick={() => onTabChange('manga')}
+          >
+            Manga
+          </button>
+        </div>
+
+        <div className="banner-nav">
+          {navItems.map(item => (
+            <button key={item.id} className="banner-nav-link" onClick={() => scrollTo(item.id)}>
+              {item.name}
+            </button>
+          ))}
+        </div>
+
+        <div className="banner-actions">
+          <a
+            href="https://github.com/danieldaug"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="banner-icon-link"
+          >
+            <FaGithub size={19} />
+          </a>
+          <a
+            href={`${process.env.PUBLIC_URL}/Daugbjerg_Resume.pdf`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="banner-resume-btn"
+          >
+            Resume
+          </a>
+        </div>
+
+        <div className="banner-mobile-menu">
+          <IconDropdown navItems={navItems} />
+        </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

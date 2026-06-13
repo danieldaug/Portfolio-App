@@ -1,13 +1,12 @@
 import React from 'react';
-import './ProjectDisplay.css'; // CSS for styling
-import { FaGithub, FaLink } from 'react-icons/fa';
-import Divider from './Divider.tsx';
+import './ProjectDisplay.css';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 interface Item {
   title: string;
   description: string;
   imageUrl: string;
-  overlayText: String;
+  overlayText: string;
   git: string;
   other?: string;
 }
@@ -18,49 +17,47 @@ interface ProjectDisplayProps {
 
 const ProjectDisplay: React.FC<ProjectDisplayProps> = ({ items }) => {
   return (
-    <div className="stack-container">
+    <div className="projects-grid">
       {items.map((item, index) => (
-        <div>
-        <div key={index} className="stack-item">
-          <div className="stack-title">
-            <h2>{item.title}</h2>
-            <svg width="0" height="0">
-                <defs>
-                  <linearGradient id="gradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" style={{ stopColor: 'var(--accent-color)', stopOpacity: 1 }} />
-                    <stop offset="100%" style={{ stopColor: 'var(--primary-color)', stopOpacity: 1 }} />
-                  </linearGradient>
-                  <linearGradient id="hover-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" style={{ stopColor: 'var(--primary-color)', stopOpacity: 1 }} />
-                    <stop offset="100%" style={{ stopColor: 'var(--accent-color)', stopOpacity: 1 }} />
-                  </linearGradient>
-                </defs>
-            </svg>
-            <a href={item.git}>
-                <button className="git-button">
-                    <FaGithub size={30} />
-                </button>
-            </a>
-            { item.other && <a href={item.other}>
-                <button className="git-button">
-                    <FaLink size={30} />
-                </button>
-            </a>}
+        <article key={index} className="project-card">
+          <div className="project-img-wrap">
+            <img src={item.imageUrl} alt={item.title} className="project-img" />
+            {item.overlayText && (
+              <div className="project-overlay">
+                <p>{item.overlayText}</p>
+              </div>
+            )}
           </div>
-          <div className="stack-description">
-            <p>{item.description}</p>
+          <div className="project-body">
+            <h3 className="project-title">{item.title}</h3>
+            <p className="project-desc">{item.description}</p>
+            <div className="project-links">
+              <a
+                href={item.git}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-link"
+              >
+                <FaGithub size={14} />
+                <span>GitHub</span>
+              </a>
+              {item.other && (
+                <a
+                  href={item.other}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link"
+                >
+                  <FaExternalLinkAlt size={12} />
+                  <span>Live</span>
+                </a>
+              )}
+            </div>
           </div>
-          <div className="stack-image">
-            <img className="proj-img" src={item.imageUrl} alt={item.title} />
-            <div className="overlay-text">{item.overlayText}</div>
-          </div>
-        </div>
-        <Divider color="#19057e" thickness='5px' />
-        </div>
+        </article>
       ))}
     </div>
   );
 };
 
 export default ProjectDisplay;
-

@@ -1,7 +1,6 @@
-// components/Intro.tsx
 import React from 'react';
-import { FaArrowDown } from 'react-icons/fa';
 import './Intro.css';
+import WelcomeBg from '../assets/welcomebackground.JPG';
 
 interface IntroProps {
   introTitle: string;
@@ -10,28 +9,37 @@ interface IntroProps {
 }
 
 const Intro: React.FC<IntroProps> = ({ introTitle, introSub, profileImageSrc }) => {
-  const handleClick = () => {
-    if (document.getElementById('about-section')){
-      document.getElementById('about-section').scrollIntoView({ behavior: 'smooth' });
-    }
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <div>
-      <div className="intro-container"></div>
-      <div className="overlay-content">
-        <div className="intro-text">
-          <h1>{introTitle}</h1>
-          <p>{introSub}</p>
-          <button className="intro-button" onClick={ handleClick }>
-            <FaArrowDown size={50} />
-          </button>
+    <section className="intro-section" style={{ backgroundImage: `url(${WelcomeBg})` }}>
+      <div className="intro-inner">
+        <div className="intro-content">
+          <span className="intro-eyebrow">Hello, I'm</span>
+          <h1 className="intro-name">{introTitle}</h1>
+          <p className="intro-tagline">{introSub}</p>
+          <div className="intro-ctas">
+            <button
+              className="intro-btn-primary"
+              onClick={() => scrollTo('project-section')}
+            >
+              View Projects
+            </button>
+            <button
+              className="intro-btn-secondary"
+              onClick={() => scrollTo('about-section')}
+            >
+              About Me
+            </button>
+          </div>
         </div>
-        <div className="profile-image">
-          <img src={profileImageSrc} alt="Profile" />
+        <div className="intro-photo-wrap">
+          <img src={profileImageSrc} alt="Daniel Daugbjerg" className="intro-photo" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,88 +1,73 @@
-// components/IconDropdown.tsx
-import React, { useState, useEffect } from 'react';
-import { FaBars } from 'react-icons/fa';
+import React, { useState, useEffect, useRef } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import './IconDropdown.css';
 
-interface MenuItem {
+interface NavItem {
   name: string;
-  link: string; // The ID of the section or URL you want to scroll to
+  id: string;
 }
 
 interface IconDropdownProps {
-  menuItems: MenuItem[];
+  navItems: NavItem[];
 }
 
-const IconDropdown: React.FC<IconDropdownProps> = ({ menuItems }) => {
-  const [iconSize, setIconSize] = useState(50); // Default size
+const IconDropdown: React.FC<IconDropdownProps> = ({ navItems }) => {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Function to handle resizing
-    const handleResize = () => {
-      if ((window.innerWidth < 800)){
-        setIconSize(15);
-      } else if (window.innerWidth < 1200) {
-        setIconSize(25); // Smaller size for mobile devices
-      } else {
-        setIconSize(35); // Larger size for larger screens
+    const onOutsideClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
       }
     };
-
-    // Set initial size
-    handleResize();
-
-    // Add resize event listener
-    window.addEventListener('resize', handleResize);
-
-    // Cleanup event listener on unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    document.addEventListener('mousedown', onOutsideClick);
+    return () => document.removeEventListener('mousedown', onOutsideClick);
   }, []);
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleClick = (link: string) => {
-    if (link.startsWith('#')) {
-      // Scroll to the section within the page
-      document.getElementById(link.substring(1))?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      // External link or full path navigation
-      window.location.href = link;
-    }
-    setIsOpen(false); // Close the dropdown after selecting a location
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setOpen(false);
   };
 
   return (
-    <div className="icon-button-container">
-      <svg width="0" height="0">
-      <defs>
-        <linearGradient id="gradient" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" style={{ stopColor: 'var(--accent-color)', stopOpacity: 1 }} />
-          <stop offset="100%" style={{ stopColor: 'var(--primary-color)', stopOpacity: 1 }} />
-        </linearGradient>
-        <linearGradient id="hover-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" style={{ stopColor: 'var(--primary-color)', stopOpacity: 1 }} />
-          <stop offset="100%" style={{ stopColor: 'var(--accent-color)', stopOpacity: 1 }} />
-        </linearGradient>
-      </defs>
-    </svg>
-      <button className="icon-button" onClick={toggleDropdown}>
-        <FaBars size={iconSize} />
+    <div className="mobile-menu" ref={ref}>
+      <button
+        className="mobile-toggle"
+        onClick={() => setOpen(o => !o)}
+        aria-label={open ? 'Close menu' : 'Open menu'}
+      >
+        {open ? <FaTimes size={18} /> : <FaBars size={18} />}
       </button>
-      <div className={`dropdown-menu ${isOpen ? 'open' : ''}`}>
-        {menuItems.map((item, index) => (
-          <div key={index} className="dropdown-item" onClick={() => handleClick(item.link)}>
-            {item.name}
-          </div>
-        ))}
-      </div>
+
+      {open && (
+        <div className="mobile-dropdown">
+          {navItems.map(item => (
+            <button key={item.id} className="mobile-item" onClick={() => scrollTo(item.id)}>
+              {item.name}
+            </button>
+          ))}
+          <div className="mobile-divider" />
+          <a
+            href="https://github.com/danieldaug"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mobile-item"
+          >
+            GitHub
+          </a>
+          <a
+            href={`${process.env.PUBLIC_URL}/Daugbjerg_Resume.pdf`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mobile-item"
+          >
+            Resume
+          </a>
+        </div>
+      )}
     </div>
   );
 };
 
 export default IconDropdown;
-

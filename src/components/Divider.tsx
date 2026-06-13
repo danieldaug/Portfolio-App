@@ -1,4 +1,3 @@
-// components/Divider.tsx
 import React from 'react';
 import './Divider.css';
 
@@ -9,18 +8,16 @@ interface DividerProps {
   style?: React.CSSProperties;
 }
 
-const Divider: React.FC<DividerProps> = ({ color = '#000', thickness = '1px', width = '100%', style }) => {
-  return (
-    <hr 
-      className="divider" 
-      style={{ 
-        borderColor: color, 
-        borderWidth: thickness, 
-        width: width, 
-        ...style 
-      }} 
-    />
-  );
-};
+const Divider: React.FC<DividerProps> = ({
+  color = 'var(--border)',
+  thickness = '1px',
+  width = '100%',
+  style,
+}) => (
+  <hr
+    className="divider"
+    style={{ borderColor: color, borderTopWidth: thickness, width, ...style }}
+  />
+);
 
 export default Divider;

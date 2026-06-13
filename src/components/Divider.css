@@ -1,8 +1,5 @@
-/* Divider.css */
-
 .divider {
-    border: none;
-    border-top: solid;
-    margin: 10px 0;
-  }
-  
+  border: none;
+  border-top-style: solid;
+  margin: 0;
+}

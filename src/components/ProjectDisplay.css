@@ -1,176 +1,114 @@
-/* ProjectDisplay.css */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
 
-.stack-container {
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  gap: 20px; /* Adds space between each project */
+  transition: border-color var(--ease), transform var(--ease);
 }
 
-/* Styles for each individual project/item */
-.stack-item {
+.project-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+}
+
+.project-img-wrap {
+  position: relative;
+  height: 190px;
+  overflow: hidden;
+  background: var(--bg-2);
+  flex-shrink: 0;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.05);
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 11, 15, 0.82);
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
-}
-
-/* Title container */
-.stack-title {
-  flex: 1;
-}
-
-.git-button {
-  background-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
-  -webkit-background-clip: text; /* Clip background to text */
-  background-clip: text; /* For non-webkit browsers */
-  background-size: 200% 100%;
-  color: linear-gradient(to top, var(--accent-color), var(--primary-color));;
-  font-size: 20px;
-  font-weight: bolder;
-  padding: 10px 10px 10px;
-  margin: 10px;
-  transition-duration: 0.3s;
-  text-align: right;
-  position: relative;
-  border: 5px solid transparent; /* Set border to transparent initially */
-  border-image: linear-gradient(to top, var(--accent-color), var(--primary-color)); /* Gradient colors */
-  border-image-slice: 1;
-  padding-bottom: 5px;
-  padding-top: 11px;
-  padding-right: 8px;
-  padding-left: 8px;
-  cursor: pointer;
-}
-
-.git-button:hover {
-  background-image: linear-gradient(to top, var(--primary-color), var(--accent-color)); /* Gradient colors */
-  -webkit-background-clip: text; /* Clip background to text */
-  background-clip: text; /* For non-webkit browsers */
-  background-size: 200% 100%;
-  color: linear-gradient(to top, var(--primary-color), var(--accent-color));;
-  border-image: linear-gradient(to top, var(--primary-color), var(--accent-color)); /* Gradient colors */
-  border-image-slice: 1;
-}
-
-.git-button svg {
-  fill: url(#gradient); /* Reference the gradient defined in the SVG */
-  transition: fill ease 0.3s;
-}
-
-.git-button:hover svg {
-  fill: url(#hover-gradient); /* Optional hover gradient */
-}
-
-.git-button:hover svg stop:first-child {
-stop-color: var(--primary-color); /* Swap the gradient colors */
-}
-
-.git-button:hover svg stop:last-child {
-stop-color: var(--accent-color);
-}
-
-.stack-title h2 {
-  font-size: 40px;
-  text-align: center;
-  margin-bottom: 0;
-}
-
-/* Description container */
-.stack-description {
-  flex: 2;
-  text-align: left;
-  margin: 50px;
-  font-size: 20px;
-}
-
-/* Image container */
-.stack-image {
-  flex-shrink: 0;
-  margin: 20px;
-  position: relative;
-  display: inline-block;
-}
-
-.stack-image:hover .proj-img {
-  filter: brightness(50%);
-  background: brightness(50%);
-}
-
-/* Image styling */
-.proj-img {
-  width: 400px; /* Set the specific width */
-  height: 400px; /* Set the specific height */
-  object-fit: cover; /* Ensures the image maintains its aspect ratio and fits the box */
-  border-radius: 10px; /* Adjust as needed */
-  display: block;
-  transition: all 0.5s ease;
-}
-  
-  /* Overlay text */
-.overlay-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
+  justify-content: center;
+  padding: 1.25rem;
   opacity: 0;
-  transition: opacity 0.5s ease;
-  pointer-events: none; /* So the text doesn't interfere with hover */
+  transition: opacity 280ms ease;
 }
 
-.stack-image:hover .overlay-text {
+.project-card:hover .project-overlay {
   opacity: 1;
 }
 
-/* Responsive styles for smaller screens */
-@media (max-width: 768px) {
-  .stack-item {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .stack-title h2 {
-    font-size: 32px;
-  }
-
-  .stack-description {
-    font-size: 18px;
-    margin: 20px;
-  }
-
-  .proj-img {
-    width: 300px;
-    height: 300px;
-  }
-
-  .git-button {
-    font-size: 18px;
-  }
+.project-overlay p {
+  color: var(--text);
+  font-size: 0.85rem;
+  text-align: center;
+  line-height: 1.6;
 }
 
-@media (max-width: 480px) {
-  .stack-title h2 {
-    font-size: 24px;
-  }
+.project-body {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 
-  .stack-description {
-    font-size: 16px;
-    margin: 10px;
-  }
+.project-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
 
-  .proj-img {
-    width: 200px;
-    height: 200px;
-  }
+.project-desc {
+  font-size: 0.845rem;
+  color: var(--text-2);
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 1.2rem;
+}
 
-  .git-button {
-    font-size: 14px;
-  }
+.project-links {
+  display: flex;
+  gap: 0.6rem;
+}
 
-  .overlay-text {
-    font-size: 18px;
+.project-link {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.775rem;
+  font-weight: 500;
+  color: var(--text-3);
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: color var(--ease), border-color var(--ease), background var(--ease);
+}
+
+.project-link:hover {
+  color: var(--accent);
+  border-color: rgba(96, 165, 250, 0.35);
+  background: var(--accent-dim);
+}
+
+@media (max-width: 720px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 }

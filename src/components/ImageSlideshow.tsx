@@ -1,30 +1,40 @@
-// components/ImageSlideshow.tsx
 import React, { useState, useEffect } from 'react';
 import './ImageSlideshow.css';
 
-const ImageSlideshow = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+interface SlideshowProps {
+  images: string[];
+}
+
+const ImageSlideshow: React.FC<SlideshowProps> = ({ images }) => {
+  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Change every 3 seconds
-
-    return () => clearInterval(interval);
+    const id = setInterval(() => {
+      setCurrent(i => (i + 1) % images.length);
+    }, 3500);
+    return () => clearInterval(id);
   }, [images.length]);
 
   return (
-    <div className="slideshow-container">
-      {images.map((image, index) => (
-        <div
-          key={index}
-          className={`slide ${index === currentIndex ? 'active' : ''}`}
-          style={{
-            backgroundImage: `url(${image})`,
-            borderRadius: '20px'
-          }}
-        ></div>
+    <div className="slideshow">
+      {images.map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt=""
+          className={`slideshow-img ${i === current ? 'active' : ''}`}
+        />
       ))}
+      <div className="slideshow-dots">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            className={`slideshow-dot ${i === current ? 'active' : ''}`}
+            onClick={() => setCurrent(i)}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
+      </div>
     </div>
   );
 };
