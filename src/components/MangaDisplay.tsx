@@ -1,9 +1,10 @@
 import React from 'react';
 import './MangaDisplay.css';
-import { FaExternalLinkAlt } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaInstagram } from 'react-icons/fa';
 import DoubleSpreadImg from '../assets/doublespread.png';
 import LoneJungleImg from '../assets/lonejungle.png';
 import ResidualImg from '../assets/residual.png';
+import BlamPfp from '../assets/blampfp.jpeg';
 
 const MangaDisplay: React.FC = () => {
   return (
@@ -47,6 +48,26 @@ const MangaDisplay: React.FC = () => {
           <span className="manga-side-label">Residual</span>
         </div>
       </div>
+
+      {/* ── Instagram section ── */}
+      <a
+        href="https://www.instagram.com/blam.jpeg"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="manga-insta"
+      >
+        <img src={BlamPfp} alt="blam.jpeg Instagram" className="manga-insta-pfp" />
+        <div className="manga-insta-text">
+          <div className="manga-insta-handle">
+            <FaInstagram size={16} />
+            <span>@blam.jpeg</span>
+          </div>
+          <p className="manga-insta-desc">
+            Main source of posting work and progress directly through social media.
+          </p>
+        </div>
+        <FaExternalLinkAlt size={13} className="manga-insta-arrow" />
+      </a>
 
     </div>
   );

@@ -131,6 +131,67 @@
   border-color: var(--accent);
 }
 
+/* ── Instagram section ── */
+.manga-insta {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  max-width: 560px;
+  margin: 0 auto;
+  transition: border-color var(--ease), background var(--ease);
+  text-decoration: none;
+}
+
+.manga-insta:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-2);
+}
+
+.manga-insta-pfp {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--border-hover);
+}
+
+.manga-insta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.manga-insta-handle {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.manga-insta-desc {
+  font-size: 0.825rem;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+.manga-insta-arrow {
+  color: var(--text-3);
+  flex-shrink: 0;
+  transition: color var(--ease);
+}
+
+.manga-insta:hover .manga-insta-arrow {
+  color: var(--accent);
+}
+
 /* ── Responsive ── */
 @media (max-width: 860px) {
   .manga-row {
