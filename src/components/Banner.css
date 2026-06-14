@@ -17,6 +17,7 @@
 }
 
 .banner-inner {
+  position: relative;
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 0 2rem;
@@ -26,6 +27,7 @@
   gap: 1rem;
 }
 
+/* ── Logo ── */
 .banner-logo {
   font-size: 1rem;
   font-weight: 800;
@@ -38,21 +40,41 @@
   flex-shrink: 0;
 }
 
-/* ── Tab switcher ── */
+/* ── Centered toggle group ── */
+.banner-toggle-group {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  pointer-events: auto;
+}
+
+.banner-toggle-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text);
+  user-select: none;
+}
+
 .banner-tabs {
   display: flex;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border);
   border-radius: 100px;
-  padding: 3px;
-  gap: 2px;
-  flex-shrink: 0;
+  padding: 4px;
+  gap: 3px;
 }
 
 .banner-tab {
-  font-size: 0.775rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  padding: 0.28rem 0.85rem;
+  padding: 0.42rem 1.25rem;
   border-radius: 100px;
   border: none;
   background: none;
@@ -150,8 +172,20 @@
     display: flex;
   }
 
+  /* Collapse back into the flex row, hide the label */
+  .banner-toggle-group {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .banner-toggle-label {
+    display: none;
+  }
+
   .banner-tab {
-    font-size: 0.7rem;
-    padding: 0.25rem 0.65rem;
+    font-size: 0.72rem;
+    padding: 0.28rem 0.7rem;
   }
 }

@@ -30,23 +30,28 @@ const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
   return (
     <nav className={`banner ${scrolled ? 'scrolled' : ''}`}>
       <div className="banner-inner">
+
         <button className="banner-logo" onClick={() => scrollTo('intro')}>
           DD
         </button>
 
-        <div className="banner-tabs">
-          <button
-            className={`banner-tab ${activeTab === 'programming' ? 'active' : ''}`}
-            onClick={() => onTabChange('programming')}
-          >
-            Programming
-          </button>
-          <button
-            className={`banner-tab ${activeTab === 'manga' ? 'active' : ''}`}
-            onClick={() => onTabChange('manga')}
-          >
-            Manga
-          </button>
+        {/* Centered on desktop via position:absolute, inline on mobile */}
+        <div className="banner-toggle-group">
+          <span className="banner-toggle-label">Project Toggle</span>
+          <div className="banner-tabs">
+            <button
+              className={`banner-tab ${activeTab === 'programming' ? 'active' : ''}`}
+              onClick={() => onTabChange('programming')}
+            >
+              Code
+            </button>
+            <button
+              className={`banner-tab ${activeTab === 'manga' ? 'active' : ''}`}
+              onClick={() => onTabChange('manga')}
+            >
+              Manga
+            </button>
+          </div>
         </div>
 
         <div className="banner-nav">
@@ -79,6 +84,7 @@ const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
         <div className="banner-mobile-menu">
           <IconDropdown navItems={navItems} />
         </div>
+
       </div>
     </nav>
   );

@@ -20,10 +20,15 @@ const MangaDisplay: React.FC = () => {
 
       {/* ── Side images + center text ── */}
       <div className="manga-row">
-        <div className="manga-side-wrap">
+        <a
+          href="https://mangaplus-creators.jp/episodes/my2606020638450027412352"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="manga-side-wrap"
+        >
           <img src={LoneJungleImg} alt="Lone Jungle" className="manga-side-img" />
           <span className="manga-side-label">Lone Jungle</span>
-        </div>
+        </a>
 
         <div className="manga-center">
           <h3 className="manga-center-title">Publicly Posted Works</h3>
@@ -43,10 +48,15 @@ const MangaDisplay: React.FC = () => {
           </a>
         </div>
 
-        <div className="manga-side-wrap">
+        <a
+          href="https://mangaplus-creators.jp/episodes/k52606100916070027412352"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="manga-side-wrap"
+        >
           <img src={ResidualImg} alt="Residual" className="manga-side-img" />
           <span className="manga-side-label">Residual</span>
-        </div>
+        </a>
       </div>
 
       {/* ── Instagram section ── */}
