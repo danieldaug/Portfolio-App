@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import './App.css';
-import Banner from './components/Banner.tsx';
-import Intro from './components/Intro.tsx';
-import ProjectDisplay from './components/ProjectDisplay.tsx';
-import ImageSlideshow from './components/ImageSlideshow.tsx';
-import MangaDisplay from './components/MangaDisplay.tsx';
+import Banner from './components/Banner';
+import Intro from './components/Intro';
+import ProjectDisplay from './components/ProjectDisplay';
+import ImageSlideshow from './components/ImageSlideshow';
+import MangaDisplay from './components/MangaDisplay';
 import ProfileImg from './assets/profile.JPG';
 import FamilyImg from './assets/family.JPG';
 import FriendsImg from './assets/friends.jpg';

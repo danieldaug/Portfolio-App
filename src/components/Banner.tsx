@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
-import IconDropdown from './IconDropdown.tsx';
+import IconDropdown from './IconDropdown';
 import './Banner.css';
 
 const navItems = [
